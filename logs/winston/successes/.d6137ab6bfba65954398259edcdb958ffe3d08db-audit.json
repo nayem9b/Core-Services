@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "/media/nayem/Cloud works/university-management-core-service-starter/logs/winston/successes/.d6137ab6bfba65954398259edcdb958ffe3d08db-audit.json",
+    "files": [
+        {
+            "date": 1692322923920,
+            "name": "/media/nayem/Cloud works/university-management-core-service-starter/logs/winston/successes/phu-2023-18-08-07-success.log",
+            "hash": "0c0484dbb3cf5aafee22314f7ff89d481b512e423846c71107a72615528d76bb"
+        }
+    ],
+    "hashType": "sha256"
+}
