@@ -1,7 +1,13 @@
 import express from 'express';
+import validateRequest from '../../middlewares/validateRequest';
 import { AcademicSemesterController } from './academicSemester.controller';
+import { AcademicSemesterValidation } from './academicSemester.validation';
 const router = express.Router();
 
-router.post('/', AcademicSemesterController.instertIntoDB);
+router.post(
+  '/',
+  validateRequest(AcademicSemesterValidation.create),
+  AcademicSemesterController.instertIntoDB
+);
 
 export const AcademicSemesterRoutes = router;
