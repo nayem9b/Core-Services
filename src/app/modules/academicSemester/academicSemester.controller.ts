@@ -18,10 +18,14 @@ const instertIntoDB = catchAsync(async (req: Request, res: Response) => {
 
 const getAllFromDB = catchAsync(async (req: Request, res: Response) => {
   console.log(req.query);
-  const filters = pick(req.query, ['searchTerm', 'code', 'year']);
+  const filters = pick(req.query, [
+    'searchTerm',
+    'code',
+    'year',
+    'startMonth',
+    'endMonth',
+  ]);
   const options = pick(req.query, ['limit', 'page', 'sortBy', 'sortOrder']);
-  console.log('Filters', filters);
-  console.log('Options', options);
   const result = await AcademicSemesterSevices.getAllFromDB(filters, options);
 
   sendResponse(res, {

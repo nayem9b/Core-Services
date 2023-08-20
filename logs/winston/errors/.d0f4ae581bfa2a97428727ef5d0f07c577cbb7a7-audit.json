@@ -19,6 +19,11 @@
             "date": 1692557508808,
             "name": "/media/nayem/Cloud works/university-management-core-service-starter/logs/winston/errors/phu-2023-21-08-00-error.log",
             "hash": "993f22960b4be2903e0161b863399b647e42a9b12505be590efbe732df82e802"
+        },
+        {
+            "date": 1692558146831,
+            "name": "/media/nayem/Cloud works/university-management-core-service-starter/logs/winston/errors/phu-2023-21-08-01-error.log",
+            "hash": "1c45e069470be6b4a12544b7ad29a6cbeea9e2956c58fb867db1f6be999585a5"
         }
     ],
     "hashType": "sha256"

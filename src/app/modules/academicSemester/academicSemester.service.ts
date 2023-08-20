@@ -2,6 +2,7 @@ import { AcademicSemester, Prisma, PrismaClient } from '@prisma/client';
 import { paginationHelpers } from '../../../helpers/paginationHelper';
 import { IGenericResponse } from '../../../interfaces/common';
 import { IPaginationOptions } from '../../../interfaces/pagination';
+import { AcademicSemesterSearchableFileds } from './academicSemester.constants';
 import { IAcademicSemesterFilterRequest } from './academicSemester.interface';
 
 const prisma = new PrismaClient();
@@ -23,15 +24,25 @@ const getAllFromDB = async (
   const { page, limit, skip } = paginationHelpers.calculatePagination(options);
 
   const { searchTerm, ...filterData } = filters;
-
+  console.log(filters);
   const andConditions = [];
 
   if (searchTerm) {
     andConditions.push({
-      OR: ['title', 'code', 'startMonth', 'endMonth'].map(field => ({
+      OR: AcademicSemesterSearchableFileds.map(field => ({
         [field]: {
           contains: searchTerm,
           mode: 'insensitive',
+        },
+      })),
+    });
+  }
+
+  if (Object.keys(filterData).length > 0) {
+    andConditions.push({
+      AND: Object.keys(filterData).map(key => ({
+        [key]: {
+          equals: (filterData as any)[key],
         },
       })),
     });
